@@ -7,6 +7,7 @@
 //
 
 #import "Artist.h"
+#import "Track.h"
 
 @implementation Artist
 

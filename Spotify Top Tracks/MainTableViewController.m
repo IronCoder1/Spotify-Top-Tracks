@@ -7,23 +7,24 @@
 //
 
 #import "MainTableViewController.h"
+#import "NetworkManager.h"
+#import "Artist.h"
+#import "ArtistBuilder.h"
+#import "MainCellView.h"
+#import "TopTracksTableViewController.h"
 
-@interface MainTableViewController ()
-
+@interface MainTableViewController ()<UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) NSMutableArray *artistList;
+//@property (strong, nonatomic) Artist *bArtist;
 @end
 
 @implementation MainTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.artistList = [[NSMutableArray alloc]initWithCapacity:0];
+    self.tableView.delegate = self;
     
- //   self.tableView = tableView;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,25 +34,48 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.artistList count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
+    MainCellView *cell = (MainCellView *)[tableView dequeueReusableCellWithIdentifier:@"customCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Artist *bArtist = self.artistList[indexPath.row];
+    
+        cell.artistIDLabel.text = bArtist.artistID;
+        cell.artistLabel.text = bArtist.name;
+    
     
     return cell;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toDetailSegue" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"toDetailSegue"])
+    {
+        TopTracksTableViewController *tvc = (TopTracksTableViewController *)[segue destinationViewController];
+        NSIndexPath *newPath = [self.tableView indexPathForSelectedRow];
+        
+        tvc.artistArray = self.artistList;
+        tvc.indexPath = newPath;
+        
+        
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,4 +121,29 @@
 }
 */
 
+#pragma mark - textfied delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (![textField.text isEqualToString:@""] || ![textField.text isEqualToString:@" "]) {
+        NetworkManager *netMgr = [[NetworkManager alloc]init];
+        
+        [netMgr getArtistWithSearchTerm:textField.text andCompletion:^(NSArray *artists, NSError *error) {
+            if(!error)
+            {
+                ArtistBuilder *newBuild = [[ArtistBuilder alloc]init];
+                for (NSDictionary *dict in artists)
+                {
+                  Artist *newArtist = [newBuild artistFromDict:dict];
+                    
+                    [self.artistList addObject:newArtist];
+                    //do we want to run this on main thread or background?
+                }
+                [self.tableView reloadData];
+            }
+        }];
+            }
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

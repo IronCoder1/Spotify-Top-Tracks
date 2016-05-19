@@ -18,6 +18,8 @@
 		6CCB53F21CECEE3B0017D98F /* MainCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB53F11CECEE3B0017D98F /* MainCellView.m */; };
 		6CCB53F51CED90C10017D98F /* ArtistBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB53F41CED90C10017D98F /* ArtistBuilder.m */; };
 		6CCB53F81CEDA6400017D98F /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB53F71CEDA6400017D98F /* Track.m */; };
+		6CCB54041CEE288C0017D98F /* TrackBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB54031CEE288C0017D98F /* TrackBuilder.m */; };
+		6CCB54071CEE40490017D98F /* TopTracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB54061CEE40490017D98F /* TopTracksTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,10 @@
 		6CCB53F41CED90C10017D98F /* ArtistBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistBuilder.m; sourceTree = "<group>"; };
 		6CCB53F61CEDA6400017D98F /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		6CCB53F71CEDA6400017D98F /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		6CCB54021CEE288C0017D98F /* TrackBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackBuilder.h; sourceTree = "<group>"; };
+		6CCB54031CEE288C0017D98F /* TrackBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackBuilder.m; sourceTree = "<group>"; };
+		6CCB54051CEE40490017D98F /* TopTracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTracksTableViewController.h; sourceTree = "<group>"; };
+		6CCB54061CEE40490017D98F /* TopTracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTracksTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,8 @@
 		6CCB53E81CECE53B0017D98F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6CCB54051CEE40490017D98F /* TopTracksTableViewController.h */,
+				6CCB54061CEE40490017D98F /* TopTracksTableViewController.m */,
 				6CCB53E51CECE4A00017D98F /* MainTableViewController.h */,
 				6CCB53E61CECE4A00017D98F /* MainTableViewController.m */,
 				6CCB53F01CECEE3B0017D98F /* MainCellView.h */,
@@ -112,10 +120,12 @@
 				6CCB53EE1CECE5B80017D98F /* NetworkManager.m */,
 				6CCB53F61CEDA6400017D98F /* Track.h */,
 				6CCB53F71CEDA6400017D98F /* Track.m */,
-				6CCB53F31CED90C10017D98F /* ArtistBuilder.h */,
-				6CCB53F41CED90C10017D98F /* ArtistBuilder.m */,
+				6CCB54021CEE288C0017D98F /* TrackBuilder.h */,
+				6CCB54031CEE288C0017D98F /* TrackBuilder.m */,
 				6CCB53EA1CECE5720017D98F /* Artist.h */,
 				6CCB53EB1CECE5720017D98F /* Artist.m */,
+				6CCB53F31CED90C10017D98F /* ArtistBuilder.h */,
+				6CCB53F41CED90C10017D98F /* ArtistBuilder.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -192,12 +202,14 @@
 			files = (
 				6CCB53D31CECC3350017D98F /* AppDelegate.m in Sources */,
 				6CCB53F21CECEE3B0017D98F /* MainCellView.m in Sources */,
+				6CCB54071CEE40490017D98F /* TopTracksTableViewController.m in Sources */,
 				6CCB53D01CECC3350017D98F /* main.m in Sources */,
 				6CCB53EC1CECE5720017D98F /* Artist.m in Sources */,
 				6CCB53EF1CECE5B80017D98F /* NetworkManager.m in Sources */,
 				6CCB53F51CED90C10017D98F /* ArtistBuilder.m in Sources */,
 				6CCB53E71CECE4A00017D98F /* MainTableViewController.m in Sources */,
 				6CCB53F81CEDA6400017D98F /* Track.m in Sources */,
+				6CCB54041CEE288C0017D98F /* TrackBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

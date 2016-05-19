@@ -19,9 +19,11 @@
 
 //dict in dict called artist with array called items with dict with key name:"3t", "id": "7Hr0OAzZbj4lzNit1djyHM",
 
-typedef void (^completionBlock)(NSArray *artist, NSError *error);
+typedef void (^completionBlock)(NSArray *artists, NSError *error);
+typedef void (^completionBlockforTopTracks)(NSArray *topTracks, NSError *error);
 
--(void) getArtistWithCompletion:(completionBlock)completionHandler;
+-(void) getArtistWithSearchTerm:(NSString *)artistname andCompletion:(completionBlock)completionHandler;
 
+-(void) getTopTracksForArtist:(NSString *)tracksUrlString andDothisOnCompletion:(completionBlockforTopTracks)completionHandler2;
 
 @end

@@ -12,6 +12,7 @@
 
 
 -(Artist *)artistFromDict:(NSDictionary *)artistDict
+
 {
     NSString *name = artistDict[@"name"];
     NSString *artistID = artistDict[@"id"];

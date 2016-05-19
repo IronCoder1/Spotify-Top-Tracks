@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Track : NSObject
+//@property (copy, nonatomic) NSArray *tracksArray;
+@property (copy, nonatomic) NSString *albumName;
 @property (copy, nonatomic) NSString *trackName;
-@property (copy, nonatomic) NSString *
+
+-(instancetype)initWithName:(NSString*)trackName
+                  albumName:(NSString *)albumName;
 
 @end

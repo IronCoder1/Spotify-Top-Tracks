@@ -9,6 +9,18 @@
 #import "Track.h"
 
 @implementation Track
+-(instancetype)initWithName:(NSString*)trackName
+                   albumName:(NSString *)albumName
+{
+    
+    if (self = [super init])
+    {
+        _trackName = trackName;
+        _albumName = albumName ;
+    }
+    //4. retrn valu of self. -> next step is to look at the networking creating new network manager
+    return self;
+}
 
 
 @end

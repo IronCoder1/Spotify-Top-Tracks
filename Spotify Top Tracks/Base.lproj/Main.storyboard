@@ -22,6 +22,9 @@
                                 <color key="backgroundColor" red="0.98141783475875854" green="0.93267560005187988" blue="0.96122688055038452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="webSearch" keyboardAppearance="alert" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Pph-EF-1P2" id="oyG-Hb-ucK"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vCi-6H-Nz1">
                                 <rect key="frame" x="0.0" y="166" width="600" height="434"/>
@@ -85,11 +88,56 @@
                     <connections>
                         <outlet property="artistTextField" destination="0Cs-lx-8fA" id="y8F-pI-Phn"/>
                         <outlet property="tableView" destination="vCi-6H-Nz1" id="eUj-UV-o3i"/>
+                        <segue destination="GLi-9y-rQg" kind="show" identifier="toDetailSegue" id="vgu-db-OOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHc-O2-TKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946" y="289"/>
+            <point key="canvasLocation" x="1740" y="273"/>
+        </scene>
+        <!--Top Tracks Table View Controller-->
+        <scene sceneID="ZA4-jW-5ky">
+            <objects>
+                <tableViewController id="GLi-9y-rQg" customClass="TopTracksTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="qiA-Kw-VVC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topTracksCell" textLabel="SaP-PP-OlC" detailTextLabel="K4z-Lu-CWS" rowHeight="88" style="IBUITableViewCellStyleValue1" id="dzS-YU-HDT">
+                                <rect key="frame" x="0.0" y="92" width="600" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dzS-YU-HDT" id="DrQ-rT-af6">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SaP-PP-OlC">
+                                            <rect key="frame" x="15" y="34" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K4z-Lu-CWS">
+                                            <rect key="frame" x="543" y="34" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GLi-9y-rQg" id="FS8-qq-5fL"/>
+                            <outlet property="delegate" destination="GLi-9y-rQg" id="iU1-tC-I6R"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvy-6k-nAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2615" y="-282"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11G-wp-Qhk">
