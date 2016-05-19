@@ -21,5 +21,14 @@
     Track *newTrack = [[Track alloc]initWithName:trackName albumName:albumName];
     
     return newTrack;
+    
+    /*
+     NSString *trackName = trackDict[@"name"];
+     NSString *albumName = trackDict[@"album"][@"name"];
+     
+     NSArray *artists = trackDict[@"artists"];
+     NSDictionary *artistDict = artists[0];
+     NSString *artistName = artistDict[@"name"];
+     */
 }
 @end

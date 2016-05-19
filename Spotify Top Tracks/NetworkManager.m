@@ -69,8 +69,10 @@ NSLog(@"jsondict = %@",jsonDict);
 
 -(void) getTopTracksForArtist:(NSString *)tracksUrlString andDothisOnCompletion:(completionBlockforTopTracks)completionHandler2
 {
-  NSString *baseUrl = [NSString stringWithFormat:@"https://api.spotify.com/v1/artists/ %@",tracksUrlString];
+  NSString *baseUrl = [NSString stringWithFormat:@"https://api.spotify.com/v1/artists/%@",tracksUrlString];
     NSString *finalString = [baseUrl stringByAppendingString:@"/top-tracks?country=GB"];
+    
+    //https://api.spotify.com/v1/artists/5rAaG3OuMuWvPWYji9TDgh/top-tracks?country=GB
     
     NSURL *topTrackUrl = [NSURL URLWithString:finalString];
     NSURLSession *session2= [NSURLSession sharedSession];
@@ -85,12 +87,12 @@ NSLog(@"jsondict = %@",jsonDict);
         {
             NSError *jsonError;
             NSDictionary *jsoonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
-            NSArray *tracks = jsoonDict[@"tracks"];
+            NSArray *topTracks = jsoonDict[@"tracks"];
     NSLog(@"jsondict = %@",jsoonDict);
             
             dispatch_async(dispatch_get_main_queue(),
             ^{
-                completionHandler2(tracks, error);
+                completionHandler2(topTracks, error);
                 //instead of saving as a copy for this class we send over as argument for completion handler
             });
         }

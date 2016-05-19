@@ -20,9 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
-    self.aArtist = [[Artist alloc]init];
-    NSInteger row = [_indexPath row];
-    
+    self.tracksList = [[NSMutableArray alloc]initWithCapacity:0];
+     NSInteger row = [_indexPath row];
+    self.aArtist = [self.artistArray objectAtIndex:row];
+   
     if (self.aArtist.artistID)
     {
     NetworkManager *netMgr = [[NetworkManager alloc]init];
@@ -37,8 +38,15 @@
             //do we want to run this on main thread or background?
         }
     }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+              [self.tableView reloadData];
+        });
+        
 }
 }
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -61,7 +69,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"topTracksCell" forIndexPath:indexPath];
     
-    Track *aTrack = [[Track alloc]init];
+    Track *aTrack = [self.tracksList objectAtIndex:indexPath.row];
+    
     
     cell.textLabel.text = aTrack.trackName;
     cell.detailTextLabel.text = aTrack.albumName;

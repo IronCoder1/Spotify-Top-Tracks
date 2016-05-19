@@ -125,7 +125,7 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (![textField.text isEqualToString:@""] || ![textField.text isEqualToString:@" "]) {
+    if (![textField.text isEqualToString:@""]) {
         NetworkManager *netMgr = [[NetworkManager alloc]init];
         
         [netMgr getArtistWithSearchTerm:textField.text andCompletion:^(NSArray *artists, NSError *error) {
