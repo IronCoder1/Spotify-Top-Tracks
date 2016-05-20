@@ -11,6 +11,7 @@
 @interface NetworkManager ()
 @property (nonatomic, strong) completionBlock completionHandler;
 @property (nonatomic, strong)NSMutableArray *artists;
+@property (strong, nonatomic)   NSURL   *artistUrl;
 
 @end
 
@@ -38,11 +39,16 @@
     NSString *secondURL = [common stringByAppendingString:artistnameWithPlus];
     NSString *thirdURL = [secondURL stringByAppendingString:@"&type=artist"];
    
-    NSURL *artistUrl = [NSURL URLWithString:thirdURL];
-    
+    self.artistUrl = [NSURL URLWithString:thirdURL];
+    }
+    else
+    {
+        self.artistUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.spotify.com/v1/search?q=%@&type=artist",artistname]];
+    }
+        
     self.session = [NSURLSession sharedSession];
     
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:artistUrl completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:_artistUrl completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
     {
         if (error)
         {
@@ -65,7 +71,7 @@ NSLog(@"jsondict = %@",jsonDict);
     }];
     [dataTask resume];
     }
-}
+
 
 -(void) getTopTracksForArtist:(NSString *)tracksUrlString andDothisOnCompletion:(completionBlockforTopTracks)completionHandler2
 {

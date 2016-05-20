@@ -128,6 +128,8 @@
     if (![textField.text isEqualToString:@""]) {
         NetworkManager *netMgr = [[NetworkManager alloc]init];
         
+       // [self.artistList removeAllObjects];  to reset array contents if you want
+        
         [netMgr getArtistWithSearchTerm:textField.text andCompletion:^(NSArray *artists, NSError *error) {
             if(!error)
             {

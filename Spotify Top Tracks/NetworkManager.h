@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Artist.h"
+#import <UIKit/UIKit.h>
 
 @interface NetworkManager : NSObject
 @property (strong, nonatomic) NSURLSession *session;
@@ -17,13 +18,15 @@
 
 //5. method to get (model) need a method with callback to retrieve data from api and send to view controller  write a completion block to return artisit then implement the mothod for the completion block in m file.
 
-//dict in dict called artist with array called items with dict with key name:"3t", "id": "7Hr0OAzZbj4lzNit1djyHM",
 
 typedef void (^completionBlock)(NSArray *artists, NSError *error);
 typedef void (^completionBlockforTopTracks)(NSArray *topTracks, NSError *error);
+typedef void (^downloadCompletionBlock)(UIImage *poster);
 
 -(void) getArtistWithSearchTerm:(NSString *)artistname andCompletion:(completionBlock)completionHandler;
 
 -(void) getTopTracksForArtist:(NSString *)tracksUrlString andDothisOnCompletion:(completionBlockforTopTracks)completionHandler2;
+
+-(void)  getPosterForUrl: (NSURL *)Url completionBlock:(downloadCompletionBlock)completionHandler3;
 
 @end

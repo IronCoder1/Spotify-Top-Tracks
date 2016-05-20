@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Track : NSObject
 //@property (copy, nonatomic) NSArray *tracksArray;
 @property (copy, nonatomic) NSString *albumName;
 @property (copy, nonatomic) NSString *trackName;
 
--(instancetype)initWithName:(NSString*)trackName
-                  albumName:(NSString *)albumName;
+-(instancetype)initWithName:(NSString *)trackName
+                  albumName:(NSString *)albumName
+                 posterLink:(NSString *)posterUrl;
+
+@property (strong, nonatomic) NSString *posterUrl;
+
 
 @end

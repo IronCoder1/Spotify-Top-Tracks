@@ -8,6 +8,7 @@
 
 #import "TopTracksTableViewController.h"
 #import "NetworkManager.h"
+#import "TopTracksCell.h"
 
 @interface TopTracksTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray *tracksList;
@@ -17,8 +18,14 @@
 
 @implementation TopTracksTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+#pragma mark - remember to implement get artist detail below
+    
+   // UIBarButtonItem *artistDetail = [[UIBarButtonItem alloc]initWithTitle:@"Add Track" style:UIBarButtonItemStylePlain target:self action:@selector(getArtistDetail)];
+    
     self.tableView.delegate = self;
     self.tracksList = [[NSMutableArray alloc]initWithCapacity:0];
      NSInteger row = [_indexPath row];
@@ -37,20 +44,22 @@
             [self.tracksList addObject:newTrack];
             //do we want to run this on main thread or background?
         }
-    }];
         dispatch_async(dispatch_get_main_queue(), ^{
-              [self.tableView reloadData];
+            [self.tableView reloadData];
         });
         
-}
+     }];
+        
+    }
+    
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)getArtistDetail
+{
+    
 }
+
+- (void)didReceiveMemoryWarning {[super didReceiveMemoryWarning]; }
 
 #pragma mark - Table view data source
 
@@ -60,20 +69,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     return [_tracksList count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"topTracksCell" forIndexPath:indexPath];
+    TopTracksCell *cell = [tableView dequeueReusableCellWithIdentifier:@"topTracksCell" forIndexPath:indexPath];
     
-    Track *aTrack = [self.tracksList objectAtIndex:indexPath.row];
+    Track *aTrack = self.tracksList[indexPath.row];
     
-    
-    cell.textLabel.text = aTrack.trackName;
-    cell.detailTextLabel.text = aTrack.albumName;
+    cell.trackNameLabel.text = [NSString stringWithFormat:@"Track Name: %@",aTrack.trackName];
+    cell.albumNameLabel.text = [NSString stringWithFormat:@"Album: %@",aTrack.albumName];
     
     return cell;
 }

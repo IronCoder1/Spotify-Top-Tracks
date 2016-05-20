@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C982DFC1CEF1FF1009D75C0 /* TopTracksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C982DFB1CEF1FF1009D75C0 /* TopTracksCell.m */; };
 		6CCB53D01CECC3350017D98F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB53CF1CECC3350017D98F /* main.m */; };
 		6CCB53D31CECC3350017D98F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCB53D21CECC3350017D98F /* AppDelegate.m */; };
 		6CCB53D91CECC3350017D98F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCB53D71CECC3350017D98F /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C982DFA1CEF1FF1009D75C0 /* TopTracksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTracksCell.h; sourceTree = "<group>"; };
+		6C982DFB1CEF1FF1009D75C0 /* TopTracksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTracksCell.m; sourceTree = "<group>"; };
 		6CCB53CB1CECC3350017D98F /* Spotify Top Tracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify Top Tracks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CCB53CF1CECC3350017D98F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CCB53D11CECC3350017D98F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				6CCB53E61CECE4A00017D98F /* MainTableViewController.m */,
 				6CCB53F01CECEE3B0017D98F /* MainCellView.h */,
 				6CCB53F11CECEE3B0017D98F /* MainCellView.m */,
+				6C982DFA1CEF1FF1009D75C0 /* TopTracksCell.h */,
+				6C982DFB1CEF1FF1009D75C0 /* TopTracksCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C982DFC1CEF1FF1009D75C0 /* TopTracksCell.m in Sources */,
 				6CCB53D31CECC3350017D98F /* AppDelegate.m in Sources */,
 				6CCB53F21CECEE3B0017D98F /* MainCellView.m in Sources */,
 				6CCB54071CEE40490017D98F /* TopTracksTableViewController.m in Sources */,
@@ -356,6 +362,7 @@
 				6CCB53E41CECC3350017D98F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

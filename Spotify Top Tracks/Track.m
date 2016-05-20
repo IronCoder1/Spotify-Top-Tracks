@@ -9,8 +9,9 @@
 #import "Track.h"
 
 @implementation Track
--(instancetype)initWithName:(NSString*)trackName
+-(instancetype)initWithName:(NSString *)trackName
                    albumName:(NSString *)albumName
+                  posterLink:(NSString *)posterUrl
 {
     
     if (self = [super init])
@@ -21,6 +22,12 @@
     //4. retrn valu of self. -> next step is to look at the networking creating new network manager
     return self;
 }
+
+//-(instancetype)initWithUrl:(UIImage *)posterImage
+//{
+//    
+//    
+//}
 
 
 @end

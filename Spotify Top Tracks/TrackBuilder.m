@@ -18,7 +18,12 @@
     NSDictionary *dict = trackDict[@"album"];
     NSString *albumName = dict[@"name"];
     
-    Track *newTrack = [[Track alloc]initWithName:trackName albumName:albumName];
+    NSArray *images = dict[@"images"];
+    NSDictionary *imageDict = images[0];
+    NSString *posterUrl = imageDict[@"url"];
+    
+    
+    Track *newTrack = [[Track alloc]initWithName:trackName albumName:albumName posterLink:posterUrl];
     
     return newTrack;
     
